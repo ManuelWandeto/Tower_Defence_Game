@@ -14,5 +14,10 @@ namespace Tower_Defence_Class_Library
             Width = width;
             Height = height;
         }
+
+        public bool OnMap(Point point) //returns true if a given point is on the map
+        {
+            return (point.X >= 0 && point.X < Width) && (point.Y >= 0 && point.Y < Height);
+        }
     }
 }
