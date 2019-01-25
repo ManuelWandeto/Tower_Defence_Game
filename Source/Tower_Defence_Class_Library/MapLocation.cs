@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tower_Defence_Class_Library;
 
 namespace Tower_Defence_Class_Library
 {
@@ -10,7 +11,7 @@ namespace Tower_Defence_Class_Library
         {
             if(!map.OnMap(this))
             {
-                throw new Exception("This point is not on the map");
+                throw new Out_Of_Bounds_Exception("(" + x + ", " + y +")" + " is outside the boundaries of the map");
             }
         }
     }
