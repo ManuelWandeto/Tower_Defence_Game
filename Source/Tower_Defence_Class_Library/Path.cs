@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tower_Defence_Class_Library
 {
-    class Path
+    public class Path
     {
     }
 }
