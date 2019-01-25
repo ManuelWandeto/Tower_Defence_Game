@@ -6,7 +6,13 @@ namespace Tower_Defence_Class_Library
 {
     public class Map
     {
-        public int Height;
-        public int Width;
+        public readonly int Height;
+        public readonly int Width;
+
+        public Map(int width, int height)
+        {
+            Width = width;
+            Height = height;
+        }
     }
 }
