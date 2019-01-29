@@ -6,5 +6,6 @@ namespace Tower_Defence_Class_Library
 {
     public class Invader
     {
+        public MapLocation Location { get; private set; }
     }
 }
