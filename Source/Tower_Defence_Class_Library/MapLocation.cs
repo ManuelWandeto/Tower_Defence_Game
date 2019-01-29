@@ -5,7 +5,7 @@ using Tower_Defence_Class_Library;
 
 namespace Tower_Defence_Class_Library
 {
-    public class MapLocation : Point
+    public class MapLocation : Point // Inherits all non private members of the base class
     {
         public MapLocation(int x, int y, Map map) : base(x,y)
         {
