@@ -11,10 +11,10 @@ namespace Tower_Defence_Class_Library
         private static Random _Random = new Random();
 
         /* Public Properties Of The Tower Class */
-        public int range { get; } = 1;
-        public int power { get; } = 1;
-        public double Accuracy { get; } = .75;
-        public bool IsSuccessfulShot => _Random.NextDouble() <= Accuracy;
+        protected virtual int range { get; } = 1;
+        protected virtual int power { get; } = 1;
+        protected virtual double Accuracy { get; } = .75;
+        private bool IsSuccessfulShot => _Random.NextDouble() <= Accuracy;
 
         /*Public Methods Of The Tower Class */
 
