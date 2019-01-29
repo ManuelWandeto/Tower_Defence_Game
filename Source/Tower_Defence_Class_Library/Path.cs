@@ -27,5 +27,17 @@ namespace Tower_Defence_Class_Library
                 return null;
             }
         }
+
+        public bool IsOnPath(MapLocation location)
+        {
+            foreach(var PathLocation in _path)
+            {
+                if (location.Equals(PathLocation))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
