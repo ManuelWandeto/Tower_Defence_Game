@@ -14,5 +14,7 @@ namespace Tower_Defence_Class_Library
                 throw new Out_Of_Bounds_Exception("(" + x + ", " + y +")" + " is outside the boundaries of the map");
             }
         }
+
+        public bool InRangeOf(MapLocation location, int range) => DistanceTo(location) <= range;
     }
 }
