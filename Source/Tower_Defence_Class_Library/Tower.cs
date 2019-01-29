@@ -22,12 +22,9 @@ namespace Tower_Defence_Class_Library
         {
             //logic that prohibits creating towers on the path
 
-            for(int i = 0; i < path.Length; i++)
+            if(path.IsOnPath(location))
             {
-                if(location.Y == path.GetLocationAt(i).Y)
-                {
-                    throw new Tower_On_Path_Exception(string.Format("The tower ({0},{1}) is on the path, towers are not allowed on the path", location.X, location.Y));
-                }
+                throw new Tower_On_Path_Exception(string.Format("The tower {0} is on the path, towers are not allowed on the path", location));
             }
             _Location = location;
         }
