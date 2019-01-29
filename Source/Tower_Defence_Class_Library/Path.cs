@@ -14,7 +14,18 @@ namespace Tower_Defence_Class_Library
         public int Length => _path.Length;
         public MapLocation GetLocationAt(int pathStep)
         {
-            return (pathStep < _path.Length) ? _path[pathStep] : null; // (condition) ? consequence : alternative
+            if (pathStep < _path.Length)
+            {
+                return _path[pathStep];
+            }
+            else if (pathStep < 0)
+            {
+                throw new Tower_Defence_Exception();
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
