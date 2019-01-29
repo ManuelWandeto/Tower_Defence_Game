@@ -11,7 +11,7 @@ namespace Tower_Defence_Class_Library
         {
             if(!map.OnMap(this))
             {
-                throw new Out_Of_Bounds_Exception("(" + x + ", " + y +")" + " is outside the boundaries of the map");
+                throw new Out_Of_Bounds_Exception(this + " is outside the boundaries of the map");
             }
         }
 
