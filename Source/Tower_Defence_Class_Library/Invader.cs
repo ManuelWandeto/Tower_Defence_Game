@@ -6,9 +6,9 @@ namespace Tower_Defence_Class_Library
 {
     public class Invader
     {
-        private int pathStep = 0; //fields are initialised first before the constructor is called
+        private int pathStep = 0; //fields are initialised first before the constructor is called, private member variables should be fields
         private readonly Path _path;
-        public int health { get; private set; } = 2;
+        public int Health { get; private set; } = 2; // public member variables should be properties
         public MapLocation Location => _path.GetLocationAt(pathStep);
 
         public Invader(Path path)
@@ -17,9 +17,9 @@ namespace Tower_Defence_Class_Library
         }
 
         public void Move() => pathStep++;
-        public void DecreaseHealth(int factor) => health -= factor;
-        public bool IsNeutralised => health <= 0; //a computed property that returns a value based on the logic defined
+        public void DecreaseHealth(int factor) => Health -= factor;
+        public bool IsNeutralised => Health <= 0; //a computed property that returns a value based on the logic defined
         public bool HasScored => pathStep >= (_path.Length);
-        public bool IsActive => !(HasScored && IsNeutralised);
+        public bool IsActive => !(HasScored || IsNeutralised);
     }
 }
