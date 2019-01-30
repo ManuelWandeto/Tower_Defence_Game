@@ -2,6 +2,7 @@
 using Tower_Defence_Class_Library;
 namespace Game
 {
+    
     class Game
     {
         static void Main(string[] args)
@@ -32,10 +33,10 @@ namespace Game
                 {
                     towers = new ITower[]
                     {
-                        new Powerful_Tower(new MapLocation(3,3, map), path),
-                        new Long_Range_Tower(new MapLocation(4,3, map), path),
-                        new Sharp_Shooter_Tower(new MapLocation(5,3, map), path),
-                        new Loaded_Tower(new MapLocation(1,3, map), path)
+                        new Powerful_Tower(new MapLocation(PromptAndRead(),PromptAndRead(), map), path),
+                        new Long_Range_Tower(new MapLocation(PromptAndRead(),PromptAndRead(), map), path),
+                        new Sharp_Shooter_Tower(new MapLocation(PromptAndRead(),PromptAndRead(), map), path),
+                        new Loaded_Tower(new MapLocation(PromptAndRead(),PromptAndRead(), map), path)
                     }
                 };
                 Console.WriteLine(level_1.play() ? "You have won" : "you have lost");
@@ -59,6 +60,19 @@ namespace Game
             {
                 Console.WriteLine("Unhandled exception: {0}", ex);
             }
+        }
+
+        public static int PromptAndRead()
+        {
+            Console.WriteLine("Input the x and y cordinates one at a time for the tower you are placing on the map");
+            string input = Console.ReadLine();
+            if (string.IsNullOrEmpty(input))
+            {
+                    Console.WriteLine("Please type valid digits");
+            }
+            return int.Parse(input);
+            
+            
         }
     }
 }
