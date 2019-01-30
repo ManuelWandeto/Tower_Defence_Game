@@ -6,9 +6,9 @@ namespace Tower_Defence_Class_Library
 {
     public class Level
     {
-        private Invader[] _invaders;
-        public Tower[] towers { get; set; }
-        public Level(Invader[] invaders)
+        private IInvader[] _invaders;
+        public ITower[] towers { get; set; }
+        public Level(IInvader[] invaders)
         {
             _invaders = invaders;
         }
@@ -21,14 +21,14 @@ namespace Tower_Defence_Class_Library
 
             while(remainingInvaders > 0)
             {
-                foreach (Tower tower in towers)
+                foreach (ITower tower in towers)
                 {
                     //every tower is given a chance to fire at invaders
                     tower.FireOnInvaders(_invaders);
                 }
                 //count and move invaders that are still active down the path
                 remainingInvaders = 0;
-                foreach(Invader invader in _invaders)
+                foreach(IInvader invader in _invaders)
                 {
                     if(invader.IsActive)
                     {
