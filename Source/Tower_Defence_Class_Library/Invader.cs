@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Tower_Defence_Class_Library
 {
-    public abstract class Invader
+    public abstract class Invader : IInvader
     {
         protected int pathStep = 0; //fields are initialised first before the constructor is called, private member variables should be fields
         private readonly Path _path;
         protected virtual int StepSize { get; } = 1;
-        public virtual int Health { get; protected set; } = 2; // public member variables should be properties
+        public abstract int Health { get; protected set; } // public member variables should be properties
         public MapLocation Location => _path.GetLocationAt(pathStep);
 
         public Invader(Path path)
