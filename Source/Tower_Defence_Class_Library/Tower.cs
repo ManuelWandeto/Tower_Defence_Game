@@ -4,17 +4,16 @@ using System.Text;
 
 namespace Tower_Defence_Class_Library
 {
-    public class Tower
+    public abstract class Tower : ITower
     {
         /* Private Fields Of The Tower Class */
         private readonly MapLocation _Location;
-        private static Random _Random = new Random();
 
         /* Public Properties Of The Tower Class */
         protected virtual int range { get; } = 1;
         protected virtual int power { get; } = 1;
         protected virtual double Accuracy { get; } = .75;
-        private bool IsSuccessfulShot => _Random.NextDouble() <= Accuracy;
+        private bool IsSuccessfulShot => Random.NextDouble() <= Accuracy;
 
         /*Public Methods Of The Tower Class */
 
@@ -29,9 +28,9 @@ namespace Tower_Defence_Class_Library
             _Location = location;
         }
 
-        public void FireOnInvaders(Invader[] invaders)
+        public virtual void FireOnInvaders(IInvader[] invaders)
         {
-            foreach(Invader invader in invaders)
+            foreach(IInvader invader in invaders)
             {
                 if(invader.IsActive && _Location.InRangeOf(invader.Location, range))
                 {
