@@ -7,6 +7,7 @@ namespace Tower_Defence_Class_Library
     public class Shielded_Invader : Invader
     {
         public Shielded_Invader(Path path) : base(path) { }
+        public override int Health { get; protected set; } = 2;
         private int _Shield = 10;
         public override void DecreaseHealth(int factor)
         {
