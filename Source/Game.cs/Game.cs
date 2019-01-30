@@ -40,6 +40,8 @@ namespace Game
                     }
                 };
                 Console.WriteLine(level_1.play() ? "You have won" : "you have lost");
+                Console.WriteLine("Press any key to exit");
+                Console.ReadKey(false);
                 
             }
             
@@ -55,6 +57,10 @@ namespace Game
             catch(Tower_Defence_Exception ex)
             {
                 Console.WriteLine("Unhandled tower defence exception: {0}", ex);
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("Only positive intergers are allowed");
             }
             catch(Exception ex)
             {
